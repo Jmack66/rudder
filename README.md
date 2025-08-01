@@ -12,7 +12,7 @@ A web application for tracking 3D printer activities, maintenance, and print par
 
 ## Features
 
-- currently only supports PrusaSlicer and SuperSlicer
+- Currently only supports PrusaSlicer and SuperSlicer
 - Track print jobs and their outcomes
 - Monitor print parameters and changes
 - Log maintenance events
