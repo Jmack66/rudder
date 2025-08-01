@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rudder - 3D Printer Timeline</title>
+        <link rel="icon" type="image/png" href="logo.png" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" href="styles-new.css" />
+        <style>
+            .logo-glow {
+                filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.7))
+                    drop-shadow(0 0 15px rgba(138, 43, 226, 0.4));
+            }
+        </style>
+        <!-- vis-timeline CSS and JS -->
+        <link
+            href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>
+                    <img
+                        src="logo.png"
+                        alt="Rudder Logo"
+                        class="logo-glow"
+                        style="
+                            height: 50px;
+                            vertical-align: middle;
+                            margin-right: 15px;
+                        "
+                    />
+                    Rudder - 3D Printer Logbook
+                </h1>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Print Jobs</a>
+                    <a href="timeline.html" class="nav-link active">Timeline</a>
+                </nav>
+            </header>
+
+            <div class="main-content">
+                <div class="timeline-section">
+                    <h2>Printer Timeline</h2>
+                    <div id="interactive-timeline" style="height: 600px"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for print details -->
+        <div id="print-details-modal" class="modal">
+            <div class="modal-content" id="print-details-content">
+                <span class="close" onclick="closeModal('print-details-modal')"
+                    >&times;</span
+                >
+                <h3>Print Details</h3>
+                <form id="print-details-form">
+                    <div class="form-group">
+                        <label for="edit-quality-rating"
+                            >Quality Rating (1-10):</label
+                        >
+                        <input
+                            type="number"
+                            id="edit-quality-rating"
+                            min="1"
+                            max="10"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-functionality-rating"
+                            >Functionality Rating (1-10):</label
+                        >
+                        <input
+                            type="number"
+                            id="edit-functionality-rating"
+                            min="1"
+                            max="10"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-label">Label:</label>
+                        <select id="edit-label">
+                            <option value="structural">Structural</option>
+                            <option value="fluidic">Fluidic</option>
+                            <option value="test">Test</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-ambient-temp"
+                            >Ambient Temperature (°C):</label
+                        >
+                        <input
+                            type="number"
+                            id="edit-ambient-temp"
+                            step="0.1"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-ambient-humidity"
+                            >Ambient Humidity (%):</label
+                        >
+                        <input
+                            type="number"
+                            id="edit-ambient-humidity"
+                            step="0.1"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-notes">Notes:</label>
+                        <textarea id="edit-notes"></textarea>
+                    </div>
+                    <div class="modal-buttons">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            onclick="closeModal('print-details-modal')"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn">Save Changes</button>
+                    </div>
+                </form>
+                <div class="parameters-section">
+                    <h4>Print Parameters</h4>
+                    <div id="print-details-params"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for maintenance details -->
+        <div id="maintenance-details-modal" class="modal">
+            <div class="modal-content">
+                <span
+                    class="close"
+                    onclick="closeModal('maintenance-details-modal')"
+                    >&times;</span
+                >
+                <h3>Maintenance Details</h3>
+                <form id="maintenance-details-form">
+                    <div class="form-group">
+                        <label for="edit-maintenance-description"
+                            >Description:</label
+                        >
+                        <textarea
+                            id="edit-maintenance-description"
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-maintenance-todo">Todo Tasks:</label>
+                        <textarea id="edit-maintenance-todo"></textarea>
+                    </div>
+                    <div class="modal-buttons">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            onclick="closeModal('maintenance-details-modal')"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="timeline.js"></script>
+    </body>
+</html>
