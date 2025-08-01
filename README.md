@@ -20,11 +20,11 @@ A web application for tracking 3D printer activities, maintenance, and print par
 - Track print quality and functionality ratings
 
 <div align="center">
-  <img src="https://imgur.com/gEMzMEN" alt="Rudder Logo" width="200"/>
+  <img src="https://imgur.com/gEMzMEN" alt="ex1" width="200"/>
 </div>
 
 <div align="center">
-  <img src="https://imgur.com/PKjq2i3" alt="Rudder Logo" width="200"/>
+  <img src="https://imgur.com/PKjq2i3" alt="ex2" width="200"/>
 </div>
 
 The print Jobs tab highlights slicer parameters from the previous print job that have been modified. This helps identify potential issues and optimize future prints.
