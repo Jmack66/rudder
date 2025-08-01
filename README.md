@@ -12,6 +12,7 @@ A web application for tracking 3D printer activities, maintenance, and print par
 
 ## Features
 
+- currently only supports PrusaSlicer and SuperSlicer
 - Track print jobs and their outcomes
 - Monitor print parameters and changes
 - Log maintenance events
@@ -34,6 +35,7 @@ The print Jobs tab highlights slicer parameters from the previous print job that
 - multi-printer support?
 - fixing timeline lag
 - export a previous prints settings back into PS or SuSi
+- OrcaSlicer??
 
 
 ## Setup
